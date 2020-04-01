@@ -5,7 +5,14 @@
 #include <pthread.h>
 #include <semaphore.h>
 
+void *client(void *param);
+void *barber(void *param);
 
+sem_t chairs_mutex;
+sem_t sem_client;
+sem_t sem_barber;
+int num_chairs;
+int clientWait;
 int main(int argc, char *argv[]) 
 {
 	pthread_t barberid;
